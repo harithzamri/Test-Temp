@@ -190,22 +190,22 @@ def checkLimits(sensor,sensorTemperature,sensorHumidity,sensorhighlimit,sensorlo
 	# check temperature measurements against limits
 	if float(sensorTemperature) < float(sensorlowlimit):
 		warningmsg = "Temperature low on sensor: {0}\nTemperature: {1}\nTemperature limit: {2}\nHumidity: {3}".format(sensor,sensorTemperature,sensorlowlimit,sensorHumidity)
-		bot.sendMessage(146809749,'Your Temperature is High')
+		bot.sendMessage(146809749,'Your Temperature is Low: {0}\nTemperature: {1}\nTemperature limit: {2}\nHumidity: {3}'.format(sensor,sensorTemperature,sensorlowlimit,sensorHumidity))
 		check = False
 	elif float(sensorTemperature) > float(sensorhighlimit):
 		warningmsg = "Temperature high on sensor: {0}\nTemperature: {1}\nTemperature limit: {2}\nHumidity: {3}".format(sensor,sensorTemperature,sensorhighlimit,sensorHumidity)
-		bot.sendMessage(146809749,'Your Temperature is High')
+		bot.sendMessage(146809749,'Your Temperature is High : {0}\nTemperature: {1}\nTemperature limit: {2}\nHumidity: {3}'.format(sensor,sensorTemperature,sensorlowlimit,sensorHumidity))
 		check = False
 
 	# check humidity measurements against limits
 	elif float(sensorHumidity) < float(humidityLowLimit):
 		warningmsg = "Humidity low on sensor: {0}\nTemperature: {1}\nHumidity limit: {2}\nHumidity: {3}".format(sensor,sensorTemperature,humidityLowLimit,sensorHumidity)
-		bot.sendMessage(146809749,'Your Humidity is High')
+		bot.sendMessage(146809749,'Your Humidity is Low : {0}\nTemperature: {1}\nTemperature limit: {2}\nHumidity: {3}'.format(sensor,sensorTemperature,sensorlowlimit,sensorHumidity))
 		check = False
         elif float(sensorHumidity) > float(humidityHighLimit):
        	        warningmsg = "Humidity high on sensor: {0}\nTemperature: {1}\nHumidity limit: {2}\nHumidity: {3}".format(sensor,sensorTemperature,humidityHighLimit,sensorHumidity)
-                bot.sendMessage(146809749,'Your Humidity is Low')
-				check = False
+                bot.sendMessage(146809749,'Your Humidity is High: {0}\nTemperature: {1}\nTemperature limit: {2}\nHumidity: {3}'.format(sensor,sensorTemperature,sensorlowlimit,sensorHumidity))
+		check = False
 
 	return check,warningmsg
 	
